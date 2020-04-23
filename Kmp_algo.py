@@ -22,14 +22,13 @@ def CalculateLpsArray(pattern,lps_array):
             # lps[j]=0
             # i=lps[i-1]
             # j+=1
-            #if i=0 lps_array[i-1] could be neagtive, to avoid that
-            if(i!=0):
-                i=lps_array[i-1]
+            #if i=0 lps_array[i-1] could be negative, to avoid that
+            if(i==0):
+                lps_array[j] = i
             else:
-                lps_array[j]=i
-                #j+=1
+                i=lps_array[i-1]
 
-    print(lps_array)
+    #print(lps_array)
     #return lps_array
 
 
@@ -52,10 +51,11 @@ def findMatchKmp(text,pattern):
             i+=1
             j+=1
         else:
-            if j!=0:
-                j=lps_array[j-1]
-            else:
+            if j==0:
                 i+=1
+            else:
+                j=lps_array[j-1]
+
         if j==patlen:
             #incrementing found variable as the pattern is found
             found+=1

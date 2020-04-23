@@ -21,8 +21,8 @@ def computeLcs(s1,s2):
                 lcs_array[i][j] = lcs_array[i][j-1]
                 letter_array[i][j] = "L"
 
-    #print(lcs_array)
-    #print(letter_array)
+    print(lcs_array)
+    print(letter_array)
     lcs_length=lcs_array[m][n]
     print("The length of longest common subsequence is "+ str(lcs_length))
     lcs=[""]*(lcs_length)
